@@ -22,6 +22,17 @@
     "options_page": "options.html",
     
     "browser_action":{
-        "default_icon":"assets/productivity.png"
-    }
+        "default_icon":"assets/productivity.png",
+        "default_popup":"popup.html"
+    },
+
+    "permissions":[
+        "storage",
+        "tabs",
+        "notifications",
+        "webRequest",
+        "*://*.google.com/",
+        "webRequestBlocking",
+        "contextMenus"
+    ]
 }
