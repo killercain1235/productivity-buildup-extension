@@ -82,4 +82,11 @@
              left: 0;
              top: 0;
         }
+  #alarmTime
+        {
+          width: 50%;
+          height: 50%;
+        }
+
+
         
