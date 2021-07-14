@@ -27,3 +27,16 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo) {
   });
 });
 //blacklisturl
+
+//block http requests
+function blockRequest(details) {
+  console.log("Blocked: ", details.url);
+  return {
+    cancel: true
+  };
+}
+
+chrome.webRequest.onBeforeRequest.addListener(blockRequest, {
+  urls: ["*://www.facebook.com/*"]
+}, ['blocking']);
+//block http requests
