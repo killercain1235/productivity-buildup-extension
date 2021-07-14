@@ -34,5 +34,6 @@
         "*://*.google.com/",
         "webRequestBlocking",
         "contextMenus"
-    ]
+    ],
+    "content_security_policy": "script-src 'self' https://kit.fontawesome.com/5f59ca6ad3.js; object-src 'self"
 }
