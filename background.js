@@ -37,6 +37,6 @@ function blockRequest(details) {
 }
 
 chrome.webRequest.onBeforeRequest.addListener(blockRequest, {
-  urls: ["*://www.facebook.com/*"]
+  // urls: ["https://*/*"]
 }, ['blocking']);
 //block http requests
