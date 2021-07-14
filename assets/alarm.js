@@ -1,5 +1,5 @@
 var alarmSound = new Audio();
-		alarmSound.src = "./.mp3" /;
+		alarmSound.src = "./calm_morning_alarm.mp3";
 		var alarmTimer;
 
 		function setAlarm(button) {
