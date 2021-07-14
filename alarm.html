@@ -1,1 +1,12 @@
 
+<!-- Alarm clock -->
+         <div class = "AlarmClock" style="min-height: 70px; min-width: 160px;">
+          <input id="alarmTime" type="datetime-local">
+          <button class = "alarmBtn btn btn-info btn-sm" onclick="setAlarm(this);">Set Alarm</button>
+        
+          <div id="alarmOptions" style="display: none;">
+            <button class = "btn btn-info btn-sm" onclick="snooze();">Snooze 5 minutes</button>
+            <button class = "btn btn-info btn-sm" onclick="stopAlarm();">Stop Alarm</button>
+          </div>
+
+         </div>
