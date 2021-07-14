@@ -33,6 +33,7 @@
             font-size: 20px;
 
           }
+
           
           h2 {
             margin-bottom: 0.5rem;
@@ -71,4 +72,14 @@
             margin-right: 8px;
             margin-bottom: 8px;
           }
+
+
+        /* alarm button */
+        
+        .AlarmClock
+        {
+             position: absolute;
+             left: 0;
+             top: 0;
+        }
         
