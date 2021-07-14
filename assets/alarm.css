@@ -1,11 +1,12 @@
 .AlarmClock
         {
              position: absolute;
-             left: 0;
-             top: 0;
+            align-items : center;
             margin-right: 8px;
             margin-bottom: 8px;
+            padding : auto ;
         }
+
   #alarmTime
         {
           width: 50%;
