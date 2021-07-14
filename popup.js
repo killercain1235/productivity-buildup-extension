@@ -112,7 +112,7 @@ getFocus();
 // Alarm Clock
 
 var alarmSound = new Audio();
-		alarmSound.src = 'calm_morning_alarm.mp3';
+		alarmSound.src = 'assets/calm_morning_alarm.mp3';
 		var alarmTimer;
 
 		function setAlarm(button) {
