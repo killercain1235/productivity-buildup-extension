@@ -82,6 +82,14 @@
 
 
         /* alarm button */
+
+        .button_cont4{
+            position: absolute;
+            left:   0 ;
+             top:   0;
+            margin-right: 14px;
+            margin-bottom: 8px;
+          }
         
         .AlarmClock
         {
@@ -97,6 +105,7 @@
           height: 50%;
        
         }
+        
 
 
         
