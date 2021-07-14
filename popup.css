@@ -3,6 +3,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            background-size: cover;
           }
           
           .container {
@@ -51,15 +52,23 @@
             right:    0;
             bottom:   0;
             margin-right: 8px;
+            margin-bottom: 8px;
           }
           /*todo list button*/
           .button{
             color: white;
             font-size: 16px;
             margin-left: 4px;
-            width: 80px;
-            height: 45px;
+            width: 70px;
+            height: 35px;
             border-width: 0;
             border-radius: 8px;
+          }
+          .button_cont2{
+            position: absolute;
+            left:    0;
+            bottom:   0;
+            margin-right: 8px;
+            margin-bottom: 8px;
           }
         
