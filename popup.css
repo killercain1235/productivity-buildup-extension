@@ -72,6 +72,13 @@
             margin-right: 8px;
             margin-bottom: 8px;
           }
+          .button_cont3{
+            position: absolute;
+            left:    50%;
+            bottom:   0;
+            margin-right: 14px;
+            margin-bottom: 8px;
+          }
 
 
         /* alarm button */

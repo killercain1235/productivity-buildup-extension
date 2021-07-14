@@ -29,14 +29,28 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo) {
 //blacklisturl
 
 //block http requests
-function blockRequest(details) {
-  console.log("Blocked: ", details.url);
-  return {
-    cancel: true
-  };
-}
+function blockhttpreq(){
+  function blockRequest(details) {
+    console.log("Blocked: ", details.url);
+    return {
+      cancel: true
+    };
+  }
 
-chrome.webRequest.onBeforeRequest.addListener(blockRequest, {
-  // urls: ["https://*/*"]
-}, ['blocking']);
+  chrome.webRequest.onBeforeRequest.addListener(blockRequest, {
+    urls: ["https://*/*"]
+  }, ['blocking']);
+}
+function unblockhttpreq(){
+  function blockRequest(details) {
+    console.log("Blocked: ", details.url);
+    return {
+      cancel: true
+    };
+  }
+
+  chrome.webRequest.onBeforeRequest.addListener(blockRequest, {
+    urls: ["https://*/*"]
+  }, ['blocking']);
+}
 //block http requests
