@@ -40,7 +40,7 @@ function setBgGreet() {
 
   if (hour < 12) {
     // Morning
-    document.body.style.backgroundImage = "url('https://res.cloudinary.com/dbraeu015/image/upload/v1625361190/456182_ssqbje.jpg')";
+    document.body.style.backgroundImage = "url('https://res.cloudinary.com/dbraeu015/image/upload/v1626221486/625b1e48551d310209d80ab1835824ea_xnwezp.jpg')";
     greeting.textContent = 'Good Morning, ';
   } else if (hour < 18) {
     // Afternoon
