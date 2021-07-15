@@ -27,12 +27,25 @@
     
         <h2>What Is Your Focus For Today?</h2>
         <h2 id="focus" contenteditable="true"></h2>
-        <!------Timer-->
+         <!-----Timer----->
+         <div id="timer">
+          <label>Time Interval</label>
+          <input type="text" id="tp1" name="SetTime"  placeholder="hh-mm-ss">
+          <br>
+          <br>
+          <canvas id="Canvas" height='100px'; width='100px';></canvas>
+          <br>
+          <br>
+          <button id="btn1" class="btn btn-info btn-sm" >start timer</button>
+          <button id="btn2" class="btn btn-info btn-sm">stop timer</button>
+          <br>
+          </div>
+        <!------Todo list----->
         <a href="./assets/todo.html"></div>
           <div class="button_cont">
             <button class="btn btn-info button">Todo</button>
           </div></a>
-        
+        <!-----blacklist-url----->
         <a href="./assets/blacklist-url.html">
           <div class="button_cont2">
             <button class="btn btn-info button">Blacklist URL</button>
@@ -45,15 +58,15 @@
           </div>
         </a></div>
        
-        <a href=" https://myalarm.ccbp.tech/" >
+        <a href="./assets/alarm.html" >
           <div class="button_cont4">
             <button class="btn btn-info button">Set Alarm</button>
           </div>
         </a></div>
         
-         
+         <!--scripts-->
          <script src="alarm.js"></script>
         <script src="popup.js"></script>
-       
+        <script src="assets/timer.js" type="text/javascript"></script>
     </body>
 </html>
