@@ -17,7 +17,7 @@
     
     "background":{
         "persistent":true ,
-        "scripts":["background.js"]
+        "scripts":["background.js","assets/alarm.js"]
     },
     
     "options_page": "options.html",

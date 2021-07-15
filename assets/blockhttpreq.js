@@ -9,25 +9,37 @@ const unlockbutton = document.getElementById("unblock");
 //     chrome.storage.local.set({locked: true});
 // });
 
-lockbutton.addEventListener("change", (event) => {
-  const locked = event.target.checked;
-
-  chrome.storage.local.set({ locked });
+lockbutton.addEventListener("click", (event) => {
+  console.log("locked");
+  localStorage.setItem("dummy", "fuckit");
+  chrome.storage.local.set({ locked: "yes" });
 });
 
+unlockbutton.addEventListener("click",() => {
+  console.log("unlocked");
+  localStorage.setItem("dummy", "jello");
+  chrome.runtime.reload();
+  // chrome.storage.local.remove(["locked"],function(){
+  //   var error = chrome.runtime.lastError;
+  //      if (error) {
+  //          console.error(error);
+  //      }
+  //  })
+  //  chrome.storage.local.set({ locked: "no" });
+})
 
-window.addEventListener("DOMContentLoaded", () => {
-  chrome.storage.local.get(["locked"], function (local) {
-    const { locked } = local;
-    // if (!Array.isArray(blocked)) {
-    //   return;
-    // }
+// window.addEventListener("DOMContentLoaded", () => {
+//   chrome.storage.local.get(["locked"], function (local) {
+//     const { locked } = local;
+//     // if (!Array.isArray(blocked)) {
+//     //   return;
+//     // }
     
-    // enabled
-    lockbutton.checked = locked;
+//     // enabled
+//     lockbutton.checked = locked;
 
-  });
-});
+//   });
+// });
 // unlockbutton.addEventListener("click", function unlocking(){
     
 //   console.log("unlocked");

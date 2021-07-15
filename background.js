@@ -36,11 +36,11 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo) {
       cancel: true
     };
   };
-// function blockhttpreq(){
-//   chrome.webRequest.onBeforeRequest.addListener(blockRequest, {
-//     urls: ["https://*/*"]
-//   }, ['blocking']);
-// };
+function blockhttpreq(){
+  chrome.webRequest.onBeforeRequest.addListener(blockRequest, {
+    urls: ["https://*/*"]
+  }, ['blocking']);
+};
 
 // function unblockhttpreq(){
 //   chrome.webRequest.onBeforeRequest.addListener(blockRequest, {
@@ -50,43 +50,42 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo) {
 
 
 
+chrome.tabs.onUpdated.addListener(function () {
+  chrome.storage.local.get(["locked"], function (local) {
+    const { locked } = local;
+    if (localStorage.getItem("dummy")=="fuckit"){
+      console.log("locking");
+      blockhttpreq();
+    }  
+      
+    else console.log("done");  
+  
+  });
+});
+
+console.log(localStorage.getItem("dummy"));
 
 
-// chrome.tabs.onUpdated.addListener(function () {
-//   chrome.storage.local.get(["unlocked"], function (local) {
-//     const { unlocked } = local;
-//     if (unlocked){
-//       console.log("unlocking");
-//       chrome.storage.local.remove(["locked"],function(){
-//         var error = chrome.runtime.lastError;
-//            if (error) {
-//                console.error(error);
-//            }
-//        })
-       
+
+
+
+// chrome.runtime.onInstalled.addListener(function () {
+//   chrome.storage.local.get(["locked"], function (local) {
+
+//     if (typeof local.locked !== "boolean") {
+//       chrome.storage.local.set({ locked: false });
 //     }
 //   });
 // });
 
-
-
-chrome.runtime.onInstalled.addListener(function () {
-  chrome.storage.local.get(["locked"], function (local) {
-
-    if (typeof local.locked !== "boolean") {
-      chrome.storage.local.set({ locked: false });
-    }
-  });
-});
-
-chrome.tabs.onUpdated.addListener(function () {
-  chrome.storage.local.get(["locked"], function (local) {
-    const { locked } = local;
-    if (locked){
-      console.log("working");
-      blockhttpreq();
-    }
-  });
-});
+// chrome.tabs.onUpdated.addListener(function () {
+//   chrome.storage.local.get(["locked"], function (local) {
+//     const { locked } = local;
+//     if (locked){
+//       console.log("working");
+//       blockhttpreq();
+//     }
+//   });
+// });
 
 //block http requests
