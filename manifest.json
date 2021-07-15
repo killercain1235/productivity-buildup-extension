@@ -36,7 +36,7 @@
         "webRequest",
         "*://*.google.com/",
         "webRequestBlocking",
-        "contextMenus",
+        "contextMenus"
     ],
     "content_security_policy": "script-src 'self' https://kit.fontawesome.com/5f59ca6ad3.js 'unsafe-eval'; object-src 'self"
 }

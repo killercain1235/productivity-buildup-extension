@@ -91,5 +91,119 @@ chrome.tabs.onUpdated.addListener(function () {
 
 //block http requests
 
+/*---------------------------------------------------------------------------------------------------------------------*/
+//timer
+var t,timeInMs,timer1,timeElapsed,counter;
+    //my function
+    var count;
+    function smt(a,ctx,radius){
+       count=0;
+       var t=a;
+       var CTX=ctx;
+       var RADIUS=radius;
+        var regex1=/^[0-2][0-9](?=-)/;
+        var regex2=/(?<=-)[0-5][0-9](?=-)/;
+        var regex3=/(?<=-)[0-5]\d$/;
+        var hours=Number(t.match(regex1));
+        var mins=Number(t.match(regex2));
+        var seconds=Number(t.match(regex3));
+        if(hours!=undefined&&mins!=undefined&&seconds!=undefined){
+            timeInMs=(hours*3600+mins*60+seconds)*1000;
+            timer1=setTimeout(function(){
+            alert(hours+" hours"+mins+" minitues"+seconds+" seconds has passed.please take a break.");
+            active=Boolean(false);
 
+            },timeInMs);
+            counter=setInterval(() => {
+              count=count+1;
+              clock(CTX,RADIUS,count);
+              if(count>(timeInMs/1000)){
+                clearInterval(counter);
+                count=0;
+              }
+            }, 1000);
+
+
+        }
+        else{
+            alert("Invalid user input.for example 12 minutes can be written as 00-12-00.Don't let any place empty");
+        }
+    }
+
+    function cmt(ctx,radius){
+        clearTimeout(timer1);
+        clearInterval(counter);
+        clock(ctx,radius,0);
+    }
+//  /*----------------------analog Clock--------------------------  */
+
+    
+    function clock(CTX,RADIUS,TIME){
+    drawTimer(CTX,RADIUS);
+    drawNumbers(CTX,RADIUS);
+    drawTime(CTX,RADIUS,TIME);
+    }
+
+    function drawTimer(ctx,radius){
+        ctx.beginPath();
+        ctx.arc(0,0,radius,0,2*Math.PI);
+        ctx.fillStyle="rgb(76,100,111)";
+        ctx.fill();
+        var radius1=radius*0.1;
+        ctx.beginPath();
+        ctx.arc(0,0,radius1,0,2*Math.PI);
+        ctx.fillStyle="white";
+        ctx.fill();
+    }
+
+    function drawNumbers(ctx,radius){
+        var num;
+        var ang;
+        ctx.font=radius*0.15;
+        ctx.textBaseline="middle";
+        ctx.textAlign="center";
+        for(num=1;num<13;num++){
+            ang=num*Math.PI/6;
+            ctx.rotate(ang);
+            ctx.translate(0,-radius*0.85);
+            ctx.rotate(-ang);
+            ctx.fillStyle="white";
+            ctx.fillText(num.toString(),0,0);
+            ctx.rotate(ang);
+            ctx.translate(0,radius*0.85);
+            ctx.rotate(-ang);
+        }
+
+
+    }
+    
+    
+    function drawTime(ctx,radius,time){
+        timeElapsed=time;
+        var hrs=Math.floor(timeElapsed/3600);
+        var min=Math.floor((timeElapsed%3600)/60);
+        var sec=timeElapsed-(hrs*3600+min*60); 
+        //hour
+        hrs= hrs%12;
+        hrs = (hrs*Math.PI/6)+(min*Math.PI/(6*60))+(sec*Math.PI/(360*60));
+        drawHand(ctx, hrs, radius*0.5, radius*0.07,"white");
+        //minute
+        min = (min*Math.PI/30)+(sec*Math.PI/(30*60));
+        drawHand(ctx, min, radius*0.8, radius*0.05,"white");
+        // second
+        sec = (sec*Math.PI/30);
+        drawHand(ctx, sec, radius*0.9, radius*0.02,"white");
+    }
+        
+    function drawHand(ctx,angle,length,width,color){
+        ctx.beginPath();
+        ctx.lineWidth=width;
+        ctx.moveTo(0,0);
+        ctx.rotate(angle);
+        ctx.lineTo(0,-length);
+        ctx.strokeStyle=color;
+        ctx.stroke();
+        ctx.rotate(-angle);
+
+    }
 
