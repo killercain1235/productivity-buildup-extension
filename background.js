@@ -108,7 +108,7 @@ chrome.alarms.onAlarm.addListener((alarm) => {
         }],
         priority: 0
     });
-    const audio = new Audio('./');
+    const audio = new Audio('./assets/calm_morning_alarm.mp3');
     audio.play();
 })
 
