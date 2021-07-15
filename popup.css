@@ -58,12 +58,15 @@
           /*todo list button*/
           .button{
             color: white;
-            font-size: 16px;
-            margin-left: 4px;
+            font-size: 11px;
             width: 70px;
             height: 35px;
+            font-weight: 600;
             border-width: 0;
             border-radius: 8px;
+            text-align: center;
+            padding: 3px;
+            margin-left: 4px;
           }
           .button_cont2{
             position: absolute;
@@ -90,9 +93,3 @@
             margin-right: 14px;
             margin-bottom: 8px;
           }
-        
-        
-        
-
-
-        

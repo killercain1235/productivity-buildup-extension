@@ -1,5 +1,12 @@
+.alarm-bg-container {
+  background-image: url('https://res.cloudinary.com/dbraeu015/image/upload/v1626331216/running-animated-alive-alarm-clock-legs-worried-face-moustache-time-arrows-flat-style-vector-illustration-isolated-82731763_c7ikav.jpg');
+  height: 100vh;
+  background-size: cover;
+  padding: 3px;
+  }
+
 .AlarmClock
-        {
+        {    
              position: absolute;
             align-items : center;
             margin-right: 8px;
@@ -13,3 +20,17 @@
           height: 50%;
        
         }
+.alarm-button{
+  color: white;
+    background-color: #4c63b6;
+    font-family: "Roboto";
+    font-size: 18px;
+    border-width: 0px;
+    border-radius: 4px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 20px;
+    padding-left: 20px;
+}

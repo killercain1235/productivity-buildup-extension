@@ -5,12 +5,22 @@
             .body {
                 align-items: center;
             }
+            .block-button{
+                background-color:rgb(60, 141, 196);
+                color: white;
+                border-radius: 6px;
+                margin: 4px;
+                padding: 4px;
+                font-size: 12px;
+                border: 0;
+
+            }
         </style>
     </head>
     <body>
-        <input type="checkbox" id="block" checked="checked">
-        <!-- <button id="unblock" >Unlock all HTTP Requests</button> -->
-        
+        <button id="block" onclick="" class="block-button">Lock all HTTP Requests</button>
+        <button id="unblock" class="block-button">Unlock all HTTP Requests</button>
+          <a href="../popup.html"><button class="block-button" id="saveTodoButton"> -Back-</button></a>
         
         <!-- <script src="../background.js"></script> -->
         <script src="./blockhttpreq.js"></script>
