@@ -42,13 +42,6 @@ function blockhttpreq(){
   }, ['blocking']);
 };
 
-// function unblockhttpreq(){
-//   chrome.webRequest.onBeforeRequest.addListener(blockRequest, {
-//     // urls: ["https://*/*"]
-//   }, ['blocking']);
-// };
-
-
 
 chrome.tabs.onUpdated.addListener(function () {
   chrome.storage.local.get(["locked"], function (local) {
@@ -66,27 +59,6 @@ chrome.tabs.onUpdated.addListener(function () {
 console.log(localStorage.getItem("dummy"));
 
 
-
-
-
-// chrome.runtime.onInstalled.addListener(function () {
-//   chrome.storage.local.get(["locked"], function (local) {
-
-//     if (typeof local.locked !== "boolean") {
-//       chrome.storage.local.set({ locked: false });
-//     }
-//   });
-// });
-
-// chrome.tabs.onUpdated.addListener(function () {
-//   chrome.storage.local.get(["locked"], function (local) {
-//     const { locked } = local;
-//     if (locked){
-//       console.log("working");
-//       blockhttpreq();
-//     }
-//   });
-// });
 
 //block http requests
 
