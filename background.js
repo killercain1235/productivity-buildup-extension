@@ -178,3 +178,60 @@ var t,timeInMs,timer1,timeElapsed,counter;
 
     }
 
+/***************************************************************alarm*************************************************************************** */
+var alarmSound = new Audio();
+alarmSound.src = "assets/calm_morning_alarm.mp3";
+		var alarmTimer;
+
+		function setAlarm(input,almOptions) {
+      console.log("enter");
+			var ms = input;
+			if(isNaN(ms)) {
+				alert('Invalid Date');
+				return;
+			}
+     console.log(ms);
+			var alarm = new Date(ms);
+			var alarmTime = new Date(alarm.getUTCFullYear(), alarm.getUTCMonth(), alarm.getUTCDate(),  alarm.getUTCHours(), alarm.getUTCMinutes(), alarm.getUTCSeconds());
+			
+			var differenceInMs = alarmTime.getTime() - (new Date()).getTime();
+      console.log(differenceInMs);
+			if(differenceInMs < 0) {
+				alert('Specified time is already passed');
+				return;
+			}
+
+			alarmTimer = setTimeout(() =>{initAlarm(almOptions)}, differenceInMs);
+      console.log("win");
+			// button.innerText = 'Cancel Alarm';
+			// button.setAttribute('onclick', 'cancelAlarm(this);');
+		};
+
+		function cancelAlarm() {
+			clearTimeout(alarmTimer);
+      console.log("cancel alarm");
+		//	button.innerText = 'Set Alarm';
+		//	button.setAttribute('onclick', 'setAlarm(this);')
+		};
+
+		function initAlarm(almOptions) {
+      var a=almOptions
+			alarmSound.play();
+			a.style.display = '';
+		};
+
+		function stopAlarm(almOptions) {
+      var a=almOptions
+			alarmSound.pause();
+			alarmSound.currentTime = 0;
+			a.style.display = 'none';
+      console.log("stop alarm");
+		//	cancelAlarm(document.getElementById('alarmButton'));
+    cancelAlarm();
+		};
+
+		function snooze(almOptions) {
+			stopAlarm(almOptions);
+      console.log("snooze alarm")
+			alarmTimer = setTimeout(() =>{initAlarm(almOptions)}, 300000); // 5 * 60 * 1000 = 5 Minutes
+		};

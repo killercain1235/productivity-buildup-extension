@@ -13,11 +13,12 @@
         <div id="popup" style="margin:0;overflow:hidden;min-height: 200px;min-width: 400px;" class="alarm-bg-container">
           <div class = "AlarmClock">
             <input id="alarmTime" type="datetime-local">
-            <button class = "alarm-button" onclick="setAlarm(this);">Set Alarm</button>
+            <button id="btn1">Set Alarm</button>
+            <button id="btn2">cancel alarm</button>
           
             <div id="alarmOptions" style="display: none;">
-              <button class = "btn btn-info btn-sm" onclick="snooze();" class="alarm-button">Snooze 5 minutes</button>
-              <button class = "btn btn-info btn-sm" onclick="stopAlarm();" class="alarm-button">Stop Alarm</button>
+              <button id="btn3"  >Snooze 5 minutes</button>
+              <button id="btn4" >Stop Alarm</button>
             </div>
             <a href="../popup.html"><button id="saveTodoButton"  class="alarm-button">Back</button></a>
            </div>

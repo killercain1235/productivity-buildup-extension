@@ -1,49 +1,27 @@
-var alarmSound = new Audio();
-		alarmSound.src = "./calm_morning_alarm.mp3";
-		var alarmTimer;
+window.onload=function(){
+var bgpage=chrome.extension.getBackgroundPage();
+document.getElementById('btn1').addEventListener('click',setMyAlarm);
+var almOptions=document.getElementById('alarmOptions');
+document.getElementById('btn2').addEventListener('click',cancelMyAlarm);
+document.getElementById('btn3').addEventListener('click',snoozeMyAlarm);
+document.getElementById('btn4').addEventListener('click',stopMyAlarm);
+function setMyAlarm(){
+	console.log("alarm set");
+	var userInput=document.getElementById('alarmTime').valueAsNumber;
+	bgpage.setAlarm(userInput,almOptions);
+	console.log("hurray");
+	//button.innerText = 'Cancel Alarm';
+	//button.setAttribute('onclick', 'cancelAlarm(this);');
+}
+function cancelMyAlarm(){
+	bgpage.cancelAlarm();
+}
+function snoozeMyAlarm(){
+	bgpage.snooze(almOptions);
+}
+function stopMyAlarm(){
+	bgpage.stopAlarm(almOptions);
+}
 
-		function setAlarm(button) {
-			var ms = document.getElementById('alarmTime').valueAsNumber;
-			if(isNaN(ms)) {
-				alert('Invalid Date');
-				return;
-			}
 
-			var alarm = new Date(ms);
-			var alarmTime = new Date(alarm.getUTCFullYear(), alarm.getUTCMonth(), alarm.getUTCDate(),  alarm.getUTCHours(), alarm.getUTCMinutes(), alarm.getUTCSeconds());
-			
-			var differenceInMs = alarmTime.getTime() - (new Date()).getTime();
-
-			if(differenceInMs < 0) {
-				alert('Specified time is already passed');
-				return;
-			}
-
-			alarmTimer = setTimeout(initAlarm, differenceInMs);
-			button.innerText = 'Cancel Alarm';
-			button.setAttribute('onclick', 'cancelAlarm(this);');
-		};
-
-		function cancelAlarm(button) {
-			clearTimeout(alarmTimer);
-			button.innerText = 'Set Alarm';
-			button.setAttribute('onclick', 'setAlarm(this);')
-		};
-
-		function initAlarm() {
-			alarmSound.play();
-			document.getElementById('alarmOptions').style.display = '';
-		};
-
-		function stopAlarm() {
-			alarmSound.pause();
-			alarmSound.currentTime = 0;
-			document.getElementById('alarmOptions').style.display = 'none';
-			cancelAlarm(document.getElementById('alarmButton'));
-		};
-
-		function snooze() {
-			stopAlarm();
-			alarmTimer = setTimeout(initAlarm, 300000); // 5 * 60 * 1000 = 5 Minutes
-		};
-
+}

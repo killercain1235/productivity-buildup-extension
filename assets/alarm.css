@@ -34,3 +34,7 @@
     padding-right: 20px;
     padding-left: 20px;
 }
+
+.alm:active{
+  background-color: chartreuse;
+}
