@@ -29,28 +29,64 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo) {
 //blacklisturl
 
 //block http requests
-function blockhttpreq(){
+
   function blockRequest(details) {
     console.log("Blocked: ", details.url);
     return {
       cancel: true
     };
-  }
+  };
+// function blockhttpreq(){
+//   chrome.webRequest.onBeforeRequest.addListener(blockRequest, {
+//     urls: ["https://*/*"]
+//   }, ['blocking']);
+// };
 
-  chrome.webRequest.onBeforeRequest.addListener(blockRequest, {
-    urls: ["https://*/*"]
-  }, ['blocking']);
-}
-function unblockhttpreq(){
-  function blockRequest(details) {
-    console.log("Blocked: ", details.url);
-    return {
-      cancel: true
-    };
-  }
+// function unblockhttpreq(){
+//   chrome.webRequest.onBeforeRequest.addListener(blockRequest, {
+//     // urls: ["https://*/*"]
+//   }, ['blocking']);
+// };
 
-  chrome.webRequest.onBeforeRequest.addListener(blockRequest, {
-    urls: ["https://*/*"]
-  }, ['blocking']);
-}
+
+
+
+
+// chrome.tabs.onUpdated.addListener(function () {
+//   chrome.storage.local.get(["unlocked"], function (local) {
+//     const { unlocked } = local;
+//     if (unlocked){
+//       console.log("unlocking");
+//       chrome.storage.local.remove(["locked"],function(){
+//         var error = chrome.runtime.lastError;
+//            if (error) {
+//                console.error(error);
+//            }
+//        })
+       
+//     }
+//   });
+// });
+
+
+
+chrome.runtime.onInstalled.addListener(function () {
+  chrome.storage.local.get(["locked"], function (local) {
+
+    if (typeof local.locked !== "boolean") {
+      chrome.storage.local.set({ locked: false });
+    }
+  });
+});
+
+chrome.tabs.onUpdated.addListener(function () {
+  chrome.storage.local.get(["locked"], function (local) {
+    const { locked } = local;
+    if (locked){
+      console.log("working");
+      blockhttpreq();
+    }
+  });
+});
+
 //block http requests
