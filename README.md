@@ -1,4 +1,4 @@
-**Productivity-buildup-extension**
+#Productivity-buildup-extension
 
 This is a chrome extension aimed towards improving the user's productivity.
 
